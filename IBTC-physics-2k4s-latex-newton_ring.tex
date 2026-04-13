@@ -1,0 +1,43 @@
+\documentclass[14pt]{extarticle}
+
+\usepackage{labstyle}
+
+\def\labauthors{Скороходов С.А., Степушов Г.С.}
+\def\labgroupshort{427}
+\def\labgroupfull{0424С1ИБг1}
+\def\labtheme{Кольца Ньютона}
+\def\shortlabtheme{Кольца Ньютона}
+
+\graphicspath{{image/}{graph/}}
+
+%\addbibresource{BibTeX/references.bib}
+
+\begin{document}
+	\pagestyle{fancy}
+	% Титульный лист
+	\include{source/title.tex}
+
+	% Содержание
+	\include{source/content.tex}
+
+	% Введение
+	\include{source/introduction.tex}
+
+	% Теоритическая часть
+	\include{source/theory.tex}
+
+	% Практическая часть
+	\include{source/practice.tex}
+
+	% Вывод
+	\include{source/conclusion.tex}
+
+	% Вопросы
+	\include{source/questions.tex}
+
+	% Список используемой литературы
+%	\include{source/references.tex}
+
+	% Приложение
+	\include{source/appendix.tex}
+\end{document}
