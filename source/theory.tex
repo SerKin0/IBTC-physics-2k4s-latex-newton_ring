@@ -110,33 +110,9 @@
 
 Очевидно, что условие \cref{eq:th:21} будет выполнено и для всех остальных точек источника, поскольку они находятся друг от друга на меньших угловых расстояниях, чем $S_1$ и $S_2$. Таким образом, при выполнении условия \cref{eq:th:21} в окрестности точки $C$ получается четкая интерференционная картина.
 
-\subsection{Вычисления погрешностей измерений}
 
-Формула определения погрешности радиуса линзы:
-\begin{align} \label{eq:th:2}
-	\Delta R = \frac{n}{4 \lambda k} \left(2d\, \Delta d \cdot \cos \beta + d^2 \, \Delta \beta \cdot \sin \beta\right)
-\end{align}
 
-Формула абсолютной погрешности квадрата диаметра кольца Ньютона:
-\begin{align} \label{eq:th:11}
-	\Delta d_k^2 = \sqrt{\left(\frac{\partial 	d_k^2}{\partial d_k}\right)^2 \Delta d_k^2} = \sqrt{4 d_k^2 \Delta d_k^2} = 2 d_k \Delta d_k
-\end{align}
 
-Формула абсолютной погрешности среднего значения квадрата диаметра колец (пусть $x = d_k^2$):
-\begin{align}
-	\overline{x} = \frac{x_1 + x_2 + ... + x_n}{n} = \frac1n \sum_{i=1}^n x_i
-\end{align}
-\begin{multline} \label{eq:th:12}
-	\Delta \overline{x} 
-	= 
-	\sqrt{\left(\frac{\partial \overline{x}}{\partial x_1}\right)^2 \Delta x_1^2 + \cdots + \left(\frac{\partial \overline{x}}{\partial x_n}\right)^2 \Delta x_n^2} 
-	=
-	\sqrt{\frac{1}{n^2} \Delta x_1^2 + ... + \frac{1}{n^2} \Delta x_n^2}
-	=\\=
-	\frac1n \sqrt{\Delta x_1^2 + ... + \Delta x_n^2}	
-	=
-	\boxed{\frac1n \sqrt{\sum_{i=1}^n \Delta x_{i}^2}}
-\end{multline}
 
 
 \subsection{Аппроксимация линейного графика}
@@ -166,7 +142,7 @@ a = \frac{\sum k_i d_{k_i}^2}{\sum k_i^2}.
 \]
 
 
-\subsection{Графическое определение радиуса кривизны линзы}
+\subsection{Графическое определение радиуса кривизны линзы} \label{graf_rad}
 
 По экспериментальным данным строится график зависимости квадрата диаметра кольца $d_k^2$ от его номера $k$. Согласно формуле \cref{eq:th:18}, экспериментальные точки должны располагаться вдоль прямой, проходящей через начало координат.
 
@@ -174,3 +150,54 @@ a = \frac{\sum k_i d_{k_i}^2}{\sum k_i^2}.
 \[
 d_m^2 = \underbrace{\frac{4 R \lambda}{\cos \beta}}_{=a} k \qquad\Rightarrow\qquad \boxed{R = a \cdot \frac{\cos \beta}{4 \lambda}}
 \]
+
+\subsection{Вычисления погрешностей измерений}
+
+\[
+\Delta (\overline{d}) = \sqrt{(\Delta d)_{\text{ср}}^2 + (\delta d_i)_{\text{ср}}^2 }
+\]
+\[
+\delta d_i = |d_i - d_\text{ср}|
+\]
+\[
+(\delta d_i)_\text{ср} = \frac1{n} \sum\limits_{i = 1}^{n} \delta d_i
+\]
+
+За $\Delta d$ будем брать погрешность измерения микрометра $0,01 $ мм. Тогда погрешность $\Delta (\overline{d}_k)^2$ будет вычисляться по формуле:
+\[
+\Delta (\overline{d}_k)^2 = 2 d_k \Delta (\overline{d}_k) 
+\]
+
+Найдём погрешность графического нахождения $R$. Погрешность коэффициента $a$ из метода наименьших квадратов:
+\[
+\Delta a = \sqrt{
+	\frac{
+		\sum\limits_{i=1}^{n} (d_k^2 - ak)^2
+	}{
+		(n - 1) \sum\limits_{i = 1}^{n}k^2
+	}
+}
+\]
+Тогда погрешность нахождения радиуса кривизны $\Delta R$ будет вычисляться по формуле:
+\[
+\Delta R = 
+	\frac{
+		\cos \beta
+	}{
+		4\lambda
+	} \cdot \Delta a + 
+	\frac{
+		\sin \beta
+	}{
+		4 \lambda
+	} a \Delta \beta
+\]
+Формула определения погрешности радиуса линзы:
+\begin{align} \label{eq:th:2}
+	\Delta R = \frac{n}{4 \lambda k} \left(2d\, \Delta d \cdot \cos \beta + d^2 \, \Delta \beta \cdot \sin \beta\right)
+\end{align}
+
+%Формула определения погрешности радиуса линзы:
+%\begin{align} \label{eq:th:2}
+%	\Delta R = \frac{n}{4 \lambda k} \left(2\overline{d}_k \Delta \overline{d}_k\cdot \cos \beta + \overline{d}_k^2 \, \Delta \beta \cdot \sin \beta\right)
+%\end{align}
